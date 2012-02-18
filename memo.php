@@ -1,9 +1,8 @@
 <?php
 	function insertMemo($memo) {
-		$query = sprintf("INSERT INTO Memo (id, memo) VALUES (%s, %s)",
-					quote_smart(uniqid()),
-					quote_smart($memo));
-		mysql_query($query);
+		mysql_query(sprintf("INSERT INTO Memo (id, memo) VALUES (%s, %s)",
+				quote_smart(uniqid()),
+				quote_smart($memo)));
 	}
 
 	function listMemo() {
