@@ -1,20 +1,22 @@
 <?php
 	require_once("secret.php");
-	
-	$link = mysql_connect("localhost", "yukoba", $dbPass);
-	if (!$link) {
-	    die('Ú‘±‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½: ' . mysql_error());
-	}
-	// echo 'Ú‘±‚É¬Œ÷‚µ‚Ü‚µ‚½';
 
-	$db_selected = mysql_select_db('yukoba', $link);
-	if (!$db_selected){
-	    die('ƒf[ƒ^ƒx[ƒX‘I‘ðŽ¸”s‚Å‚·B'.mysql_error());
+	$dbUserName = "yukoba";
+	$dbName = "yukoba";
+
+	$link = mysql_connect("localhost", $dbUserName, $dbPass);
+	if (!$link) {
+	    die('æŽ¥ç¶šã§ãã¾ã›ã‚“ã§ã—ãŸ: ' . mysql_error());
+	}
+
+	$db_selected = mysql_select_db($dbName, $link);
+	if (!$db_selected) {
+	    die('ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹é¸æŠžå¤±æ•—ã§ã™ã€‚' . mysql_error());
 	}
 
 	mysql_set_charset('utf8');
 
-	// ”’lˆÈŠO‚ðƒNƒI[ƒg‚·‚é
+	// æ•°å€¤ä»¥å¤–ã‚’ã‚¯ã‚ªãƒ¼ãƒˆã™ã‚‹
 	function quote_smart($value) {
 	    if (!is_numeric($value)) {
 	        $value = "'" . mysql_real_escape_string($value) . "'";
