@@ -4,7 +4,7 @@
 	require_once("memo.php");
 	
 	$memo = $_POST["memo"];
-	if (!$memo) {
+	if (empty_request($memo)) {
 		die("メモが未入力です。");
 	}
 	
